@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Universe 2025 - Slide 2</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="slide active">
+        <div class="navbar navbar-dark">
+            <div class="container-fluid">
+                <span class="navbar-brand">
+                    <i class="bi bi-github"></i> GitHub Universe 2025
+                </span>
+            </div>
+        </div>
+        
+        <div class="slide-content">
+            <h2>My GitHub Universe Experience</h2>
+            <h3 class="subtitle">Unlike Any Microsoft Event I've Attended</h3>
+            
+            <div class="slideshow-container">
+                <div class="slideshow-image active">
+                    <img src="images/112793f3-5aef-4e71-9115-f68a72a1e345.jpg" alt="Universe Experience 1">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/166a1cc5-48fa-4539-96c4-df39724fa25b.jpg" alt="Universe Experience 2">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/1826ddd4-d7c5-4bfd-821a-90a6067259e9.jpg" alt="Universe Experience 3">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/44e7c988-53a0-4aa7-bf10-d513a1b07f5c.jpg" alt="Universe Experience 4">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/603c26d1-1806-4797-b6dd-3deb35d5dc73.jpg" alt="Universe Experience 5">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/726e4aaf-eb31-4b94-80a3-75793fe5ceb1.jpg" alt="Universe Experience 6">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/78e66778-2402-4c5d-8c63-2678d8eb827a.jpg" alt="Universe Experience 7">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/80abe7b1-5e91-41f7-88ac-5024375917b8.jpg" alt="Universe Experience 8">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/8c81fb9f-8c5e-4e7e-9571-30c6541a1fbb.jpg" alt="Universe Experience 9">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/ab7b5eb9-0bd5-4642-8b42-c86d57370f96.jpg" alt="Universe Experience 10">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/bdbf357e-6e9a-449b-a7aa-7e018c3f017f.jpg" alt="Universe Experience 11">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/d3724b35-f378-4d53-938c-88788e822768.jpg" alt="Universe Experience 12">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/ed09a801-1e22-4793-b845-8444048b7ed9.jpg" alt="Universe Experience 13">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/f8226f8f-04c3-4685-aee4-c0d54b5339ec.jpg" alt="Universe Experience 14">
+                </div>
+                <div class="slideshow-image">
+                    <img src="images/fb0fe273-d1fb-471d-9313-8f35a3cd77c4.jpg" alt="Universe Experience 15">
+                </div>
+                
+                <button class="slideshow-prev" onclick="changeSlideshowImage(-1)">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button class="slideshow-next" onclick="changeSlideshowImage(1)">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+                
+                <div class="slideshow-dots"></div>
+            </div>
+        </div>
+        
+        <div class="nav-controls">
+            <button class="btn btn-custom" id="prev-btn">
+                <i class="bi bi-arrow-left"></i> Previous
+            </button>
+            <span class="slide-indicator">2 / 5</span>
+            <button class="btn btn-custom" id="next-btn">
+                Next <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="navigation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        let currentSlideIndex = 0;
+        const images = document.querySelectorAll('.slideshow-image');
+        const dotsContainer = document.querySelector('.slideshow-dots');
+        
+        // Create dots
+        images.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.className = 'slideshow-dot';
+            if (index === 0) dot.classList.add('active');
+            dot.onclick = () => showSlideshowImage(index);
+            dotsContainer.appendChild(dot);
+        });
+        
+        const dots = document.querySelectorAll('.slideshow-dot');
+        
+        function showSlideshowImage(index) {
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlideIndex = (index + images.length) % images.length;
+            
+            images[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+        }
+        
+        function changeSlideshowImage(direction) {
+            showSlideshowImage(currentSlideIndex + direction);
+        }
+        
+        // Auto-advance every 3 seconds
+        setInterval(() => {
+            changeSlideshowImage(1);
+        }, 3000);
+    </script>
+</body>
+</html>
