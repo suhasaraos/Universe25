@@ -832,3 +832,128 @@ h3 {
     object-fit: contain;
     display: block;
 }
+/* CTA Cards for Final Slide */
+.cta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 1000px;
+}
+
+@media (min-width: 768px) {
+    .cta-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+.cta-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.cta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(57, 217, 138, 0.3);
+    border-color: var(--accent-hover);
+}
+
+.cta-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.cta-card p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Resources Section */
+.resources-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+@media (min-width: 768px) {
+    .resources-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+.resource-column {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: left;
+}
+
+.resource-column h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resource-column h4 i {
+    font-size: 1.2rem;
+}
+
+.resource-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.resource-links div {
+    font-size: 0.8rem;
+    padding: 0.4rem 0;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.resource-links div:last-child {
+    border-bottom: none;
+}
+
+.resource-links a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.resource-links a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.resource-links a::after {
+    content: '→';
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.resource-links a:hover::after {
+    transform: translateX(3px);
+}

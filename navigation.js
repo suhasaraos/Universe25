@@ -1,5 +1,5 @@
 // Dynamic slide navigation
-const TOTAL_SLIDES = 18; // Update this when adding/removing slides
+const TOTAL_SLIDES = 19; // Update this when adding/removing slides
 
 function getCurrentSlideNumber() {
     const currentPage = window.location.pathname.split('/').pop();
