@@ -83,6 +83,12 @@ A modern, developer-friendly HTML/CSS/JavaScript presentation deck showcasing Gi
 
 ## 📝 Customization Guide
 
+**💡 Pro Tip**: Use **GitHub Copilot** throughout this process! Simply describe what you want to change, and Copilot will help you modify the code. For example:
+- "Change the color scheme to blue and orange"
+- "Add a new slide about GitHub Actions with 3 bullet points"
+- "Update the presenter name to John Doe"
+- "Add a pricing comparison table to slide 15"
+
 ### 1. Personalize the Presentation
 
 #### Update Presenter Information
@@ -178,6 +184,72 @@ Place images in the `images/` folder and reference them:
 
 ## 🌐 Deployment Options
 
+### GitHub Pages (Recommended - Free & Easy)
+
+**Step 1: Fork this repository**
+1. Click the **Fork** button at the top of this repository
+2. This creates a copy under your GitHub account: `https://github.com/YOUR_USERNAME/Universe25`
+
+**Step 2: Enable GitHub Pages**
+
+**Option A - Quick Link Method:**
+1. Go directly to your Pages settings (replace with your username):
+   ```
+   https://github.com/YOUR_USERNAME/Universe25/settings/pages
+   ```
+
+2. Under **Build and deployment**, configure:
+   - **Source**: Deploy from a branch
+   - **Branch**: `master` (or `main`)
+   - **Folder**: `/ (root)`
+
+3. Click **Save**
+
+4. Wait a few moments, then refresh the page. You'll see:
+   > ✅ Your site is live at `https://YOUR_USERNAME.github.io/Universe25/`
+
+**Option B - Manual Navigation:**
+1. Go to your forked repository on GitHub
+2. Click **Settings** (top menu)
+3. Click **Pages** (left sidebar)
+4. Follow steps 2-4 above
+
+**Step 3: Share your link!**
+- Your presentation is now live at: `https://YOUR_USERNAME.github.io/Universe25/`
+- Share this link with customers, colleagues, or on mobile devices
+- Updates you push to your repository automatically update the live site
+
+### Alternative Deployment Optionsages**
+
+**Option A - Quick Link Method:**
+1. Go directly to your Pages settings (replace with your username):
+   ```
+   https://github.com/YOUR_USERNAME/Universe25/settings/pages
+### Alternative Deployment Options
+
+#### Azure Static Web Apps
+
+2. Under **Build and deployment**, configure:
+   - **Source**: Deploy from a branch
+   - **Branch**: `master` (or `main`)
+   - **Folder**: `/ (root)`
+
+3. Click **Save**
+
+4. Wait a few moments, then refresh the page. You'll see:
+   > ✅ Your site is live at `https://YOUR_USERNAME.github.io/Universe25/`
+
+**Option B - Manual Navigation:**
+1. Go to your forked repository on GitHub
+2. Click **Settings** (top menu)
+3. Click **Pages** (left sidebar)
+4. Follow steps 2-4 above
+
+**Step 3: Share your link!**
+- Your presentation is now live at: `https://YOUR_USERNAME.github.io/Universe25/`
+- Share this link with customers, colleagues, or on mobile devices
+- Updates you push to your repository automatically update the live site
+
 ### GitHub Pages (Free)
 1. Push your repository to GitHub
 2. Go to Settings → Pages
@@ -186,17 +258,17 @@ Place images in the `images/` folder and reference them:
 
 ### Azure Static Web Apps
 ```bash
-# Install Azure CLI
-az login
 az staticwebapp create --name universe25 --resource-group myResourceGroup --source .
 ```
 
+#### Any Web Server
+
 ### Any Web Server
 Simply upload all files to your web hosting:
-```bash
-# Example: Copy to web server
 scp -r * user@server:/var/www/html/universe25/
 ```
+
+#### Local Network Sharing
 
 ### Local Network Sharing
 Use Python's built-in server:
@@ -252,14 +324,22 @@ The presentation is fully responsive:
 5. **Keep images optimized**: Compress large images to improve loading
 
 ### Customization with GitHub Copilot
-This deck is designed to work seamlessly with GitHub Copilot:
-```
-# Example prompts:
-"Add a new slide about GitHub Actions"
-"Change the color scheme to blue"
-"Add a comparison table to slide 10"
-"Create a new slide with 3 columns"
-```
+This deck is designed to work seamlessly with GitHub Copilot, making modifications quick and easy:
+
+**Example Copilot prompts:**
+- *"Add a new slide about GitHub Actions after slide 10"*
+- *"Change the accent color from green to purple throughout the deck"*
+- *"Add a comparison table to slide 8 showing Free vs Pro vs Enterprise"*
+- *"Create a new slide with 3 columns showcasing different features"*
+- *"Update all 'Public Preview' labels to 'General Availability'"*
+- *"Add a footer with copyright information to all slides"*
+
+**How to use Copilot for customization:**
+1. Open any file in VS Code with GitHub Copilot enabled
+2. Use Copilot Chat to describe your desired changes
+3. Review and accept the suggestions
+4. Test in your browser
+5. Commit and push to update your live site
 
 ## 📚 Resources & Links
 
