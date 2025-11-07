@@ -40,7 +40,6 @@ body::-webkit-scrollbar {
 
 .slide {
     min-height: 100vh;
-    max-height: 100vh;
     width: 100%;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
@@ -49,12 +48,14 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 @media (min-width: 768px) {
     .slide {
         padding: 0;
+        max-height: 100vh;
+        overflow: hidden;
     }
 }
 
@@ -73,13 +74,14 @@ body::-webkit-scrollbar {
     align-items: center;
     text-align: center;
     padding: 0.5rem 1rem;
-    overflow: hidden;
-    max-height: calc(100vh - 60px);
+    overflow: visible;
 }
 
 @media (min-width: 768px) {
     .slide-content {
         padding: 1rem 2rem;
+        overflow: hidden;
+        max-height: calc(100vh - 60px);
     }
 }
 
