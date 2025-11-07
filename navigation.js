@@ -88,6 +88,14 @@ window.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
+        // Ignore clicks on slideshow controls and within slideshow container
+        if (e.target.closest('.slideshow-prev') || 
+            e.target.closest('.slideshow-next') || 
+            e.target.closest('.slideshow-dot') ||
+            e.target.closest('.slideshow-container')) {
+            return;
+        }
+        
         const screenWidth = window.innerWidth;
         const clickX = e.clientX;
         const tapZone = screenWidth * 0.25; // 25% from each edge
