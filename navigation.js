@@ -34,32 +34,15 @@ window.addEventListener('DOMContentLoaded', () => {
     
     if (!currentSlide) return;
     
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
     const slideIndicator = document.querySelector('.slide-indicator');
+    const navbar = document.querySelector('.navbar .container-fluid');
     
-    // Update slide indicator
+    // Update slide indicator and move it to navbar
     if (slideIndicator) {
         slideIndicator.textContent = `${currentSlide} / ${TOTAL_SLIDES}`;
-    }
-    
-    // Update prev button
-    if (prevBtn) {
-        if (currentSlide === 1) {
-            prevBtn.disabled = true;
-        } else {
-            prevBtn.disabled = false;
-            prevBtn.onclick = () => navigateToSlide(currentSlide - 1);
-        }
-    }
-    
-    // Update next button
-    if (nextBtn) {
-        if (currentSlide === TOTAL_SLIDES) {
-            nextBtn.disabled = true;
-        } else {
-            nextBtn.disabled = false;
-            nextBtn.onclick = () => navigateToSlide(currentSlide + 1);
+        // Move the indicator to the navbar if it's not already there
+        if (navbar && slideIndicator.parentElement.classList.contains('nav-controls')) {
+            navbar.appendChild(slideIndicator);
         }
     }
 });
