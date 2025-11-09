@@ -110,7 +110,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Tap navigation (left/right sides of screen)
+    // Click/Tap navigation (left/right sides of screen) - PowerPoint-like behavior
     document.addEventListener('click', (e) => {
         // Ignore clicks on links and interactive elements
         if (e.target.tagName === 'A' || e.target.closest('a')) {
@@ -127,19 +127,18 @@ window.addEventListener('DOMContentLoaded', () => {
         
         const screenWidth = window.innerWidth;
         const clickX = e.clientX;
-        const tapZone = screenWidth * 0.25; // 25% from each edge
         
-        // Only on mobile/tablet devices
-        if (screenWidth < 1024) {
-            if (clickX < tapZone) {
-                // Tap on left side - previous slide
-                const prevSlide = findNextVisibleSlide(currentSlide, -1);
-                navigateToSlide(prevSlide);
-            } else if (clickX > screenWidth - tapZone) {
-                // Tap on right side - next slide
-                const nextSlide = findNextVisibleSlide(currentSlide, 1);
-                navigateToSlide(nextSlide);
-            }
+        // Mobile/tablet: 25% zones, Desktop: 50% zones (PowerPoint-like)
+        const clickZone = screenWidth < 1024 ? screenWidth * 0.25 : screenWidth * 0.5;
+        
+        if (clickX < clickZone) {
+            // Click/tap on left side - previous slide
+            const prevSlide = findNextVisibleSlide(currentSlide, -1);
+            navigateToSlide(prevSlide);
+        } else if (clickX > screenWidth - clickZone) {
+            // Click/tap on right side - next slide
+            const nextSlide = findNextVisibleSlide(currentSlide, 1);
+            navigateToSlide(nextSlide);
         }
     });
 });
