@@ -1,6 +1,31 @@
 // Dynamic slide navigation
 const TOTAL_SLIDES = 19; // Update this when adding/removing slides
 
+// Get hidden slides from config
+function getHiddenSlides() {
+    return window.presentationConfig?.hiddenSlides || [];
+}
+
+// Check if a slide is hidden
+function isSlideHidden(slideNumber) {
+    return getHiddenSlides().includes(slideNumber);
+}
+
+// Find next visible slide
+function findNextVisibleSlide(currentSlide, direction) {
+    let nextSlide = currentSlide + direction;
+    
+    // Keep searching in the direction until we find a visible slide or reach the bounds
+    while (nextSlide >= 1 && nextSlide <= TOTAL_SLIDES) {
+        if (!isSlideHidden(nextSlide)) {
+            return nextSlide;
+        }
+        nextSlide += direction;
+    }
+    
+    return null; // No visible slide found in this direction
+}
+
 function getCurrentSlideNumber() {
     const currentPage = window.location.pathname.split('/').pop();
     const match = currentPage.match(/slide(\d+)\.html/);
@@ -8,7 +33,7 @@ function getCurrentSlideNumber() {
 }
 
 function navigateToSlide(slideNumber) {
-    if (slideNumber >= 1 && slideNumber <= TOTAL_SLIDES) {
+    if (slideNumber && slideNumber >= 1 && slideNumber <= TOTAL_SLIDES) {
         window.location.href = `slide${slideNumber}.html`;
     }
 }
@@ -21,10 +46,12 @@ document.addEventListener('keydown', (e) => {
     
     if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault();
-        navigateToSlide(currentSlide + 1);
+        const nextSlide = findNextVisibleSlide(currentSlide, 1);
+        navigateToSlide(nextSlide);
     } else if (e.key === 'ArrowLeft') {
         e.preventDefault();
-        navigateToSlide(currentSlide - 1);
+        const prevSlide = findNextVisibleSlide(currentSlide, -1);
+        navigateToSlide(prevSlide);
     }
 });
 
@@ -73,10 +100,12 @@ window.addEventListener('DOMContentLoaded', () => {
         if (Math.abs(xDiff) > swipeThreshold && Math.abs(xDiff) > yDiff) {
             if (xDiff > 0) {
                 // Swipe right - previous slide
-                navigateToSlide(currentSlide - 1);
+                const prevSlide = findNextVisibleSlide(currentSlide, -1);
+                navigateToSlide(prevSlide);
             } else {
                 // Swipe left - next slide
-                navigateToSlide(currentSlide + 1);
+                const nextSlide = findNextVisibleSlide(currentSlide, 1);
+                navigateToSlide(nextSlide);
             }
         }
     }
@@ -104,10 +133,12 @@ window.addEventListener('DOMContentLoaded', () => {
         if (screenWidth < 1024) {
             if (clickX < tapZone) {
                 // Tap on left side - previous slide
-                navigateToSlide(currentSlide - 1);
+                const prevSlide = findNextVisibleSlide(currentSlide, -1);
+                navigateToSlide(prevSlide);
             } else if (clickX > screenWidth - tapZone) {
                 // Tap on right side - next slide
-                navigateToSlide(currentSlide + 1);
+                const nextSlide = findNextVisibleSlide(currentSlide, 1);
+                navigateToSlide(nextSlide);
             }
         }
     });

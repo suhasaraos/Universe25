@@ -200,7 +200,7 @@
         <h1 class="welcome-title">GitHub Universe 2025</h1>
         <p class="welcome-subtitle">Key Announcements & Highlights</p>
         
-        <a href="slide1.html" class="start-button">
+        <a href="slide1.html" class="start-button" id="start-button">
             Start Presentation <i class="bi bi-play-circle"></i>
         </a>
         
@@ -225,6 +225,20 @@
     </div>
 
     <script>
+        // Find first visible slide
+        function findFirstVisibleSlide() {
+            const config = window.presentationConfig;
+            const hiddenSlides = config?.hiddenSlides || [];
+            const totalSlides = config?.event?.totalSlides || 19;
+            
+            for (let i = 1; i <= totalSlides; i++) {
+                if (!hiddenSlides.includes(i)) {
+                    return i;
+                }
+            }
+            return 1; // fallback
+        }
+        
         // Load presenter info from config
         document.addEventListener('DOMContentLoaded', () => {
             const config = window.presentationConfig;
@@ -233,7 +247,15 @@
                 document.getElementById('presenter-title').textContent = 
                     `${config.presenter.title}, ${config.presenter.company}`;
                 document.getElementById('event-date').textContent = config.event.date;
-                document.getElementById('total-slides').textContent = `${config.event.totalSlides} Slides`;
+                
+                // Calculate visible slides count
+                const hiddenCount = config.hiddenSlides?.length || 0;
+                const visibleSlides = config.event.totalSlides - hiddenCount;
+                document.getElementById('total-slides').textContent = `${visibleSlides} Slides`;
+                
+                // Update start button link
+                const firstSlide = findFirstVisibleSlide();
+                document.getElementById('start-button').href = `slide${firstSlide}.html`;
             }
         });
 
@@ -241,7 +263,8 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
                 e.preventDefault();
-                window.location.href = 'slide1.html';
+                const firstSlide = findFirstVisibleSlide();
+                window.location.href = `slide${firstSlide}.html`;
             }
         });
     </script>

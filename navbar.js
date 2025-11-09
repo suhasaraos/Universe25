@@ -5,14 +5,14 @@ function createNavbar() {
     return `
         <div class="navbar navbar-dark">
             <div class="container-fluid">
-                <span class="navbar-brand">
+                <a href="index.html" class="navbar-brand" style="cursor: pointer; text-decoration: none;">
                     <i class="bi bi-github"></i>
                     <span class="universe-logo-inline">
                         <span>Universe</span>
                         <img src="images/butterfly.png" alt="Universe butterfly" class="universe-butterfly-small">
                         <span class="universe-number">25</span>
                     </span>
-                </span>
+                </a>
             </div>
         </div>
     `;

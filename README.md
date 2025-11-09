@@ -316,10 +316,13 @@ The presentation is fully responsive:
 
 ## 💡 Tips for Presenters
 
+### 🎯 Pro Tip: PowerPoint-Like Experience
+Want to present like a traditional slide deck? Press **`F11`** on Windows/Linux (or **`Cmd+Shift+F`** on Mac) to enter full-screen mode. This gives you a clean, distraction-free presentation experience perfect for sharing your screen in meetings or presenting to customers!
+
 ### Best Practices
 1. **Test before presenting**: Open in your browser and run through all slides
 2. **Use keyboard shortcuts**: More professional than clicking buttons
-3. **Full screen mode**: Press `F11` (Windows/Linux) or `Cmd+Shift+F` (Mac)
+3. **Full screen mode**: Press `F11` (Windows/Linux) or `Cmd+Shift+F` (Mac) for PowerPoint-like experience
 4. **Check mobile view**: Test on actual devices before sharing links
 5. **Keep images optimized**: Compress large images to improve loading
 
